@@ -14,10 +14,8 @@ class CompaniesController < ApplicationController
     end
 
     def show
-        # @company = Company.find_by_user_id(current_user.id)
-        @company = Company.find_by_owner_id(User.last.id)
-        # @company_user_id = current_user.id
-
+         @company = Company.find(params[:id])
+        
     end
 
     def edit

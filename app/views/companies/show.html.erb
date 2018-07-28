@@ -1,7 +1,16 @@
 <div class="show">
 <h2><%= @company.name %></h2>
+ <%= link_to @company.website, @company.website %>
 <p><%= @company.overview %></p>
-<%= link_to "company", company_path(@company) %>
+
+<p>Tags:
+<%= @company.tags.order(name: :asc).map{ |t| t.name}.join(', ') %>
+</p>
+
+<p> tech_team: <%= @company.tech_team %> </p>
+<p> employees: <%= @company.employees %> </p>
+<p><%= link_to @company.twitter, @company.twitter %></p>
+<p><%= link_to  @company.logo, @company.logo %></p>
 
 </div>
 
