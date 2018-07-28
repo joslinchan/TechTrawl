@@ -9,9 +9,11 @@ class CompaniesController < ApplicationController
     
     def create
         @company = Company.new company_params
-        @company.user = current_user
+        @company.user = User.last 
+      
 
         if @company.save
+            flash[:success] = "Company created!"
             redirect_to company_path(@company)
         else
             render "companies/new"
@@ -41,7 +43,7 @@ class CompaniesController < ApplicationController
             :twitter,
             :logo, 
             :published, 
-            :owner_id,
+            :user_id,
             tag_ids: [])
       end
 end

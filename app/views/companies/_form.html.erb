@@ -11,37 +11,37 @@
 
     <div>
         <%=c.label(:name)%>
-        <%c.text_field(:name)%>
+        <%=c.text_field(:name)%>
     </div>
 
     <div>
         <%=c.label(:address)%>
-        <%c.text_field(:address)%>
+        <%=c.text_field(:address)%>
     </div>
 
     <div>
         <%=c.label(:postal_code)%>
-        <%c.text_field(:postal_code)%>
+        <%=c.text_field(:postal_code)%>
     </div>
 
     <div>
         <%=c.label(:overview)%>
-        <%c.text_area(:overview)%>
+        <%=c.text_area(:overview)%>
     </div>
 
     <div>
         <%=c.label(:employees)%>
-        <%c.number_field(:employees)%>
+        <%=c.number_field(:employees)%>
     </div>
 
     <div>
         <%=c.label(:tech_team)%>
-        <%c.number_field(:tech_team)%>
+        <%=c.number_field(:tech_team)%>
     </div>
 
     <div>
         <%=c.label(:website)%>
-        <%c.email_field(:website)%>
+        <%=c.text_field(:website)%>
     </div>
 
     <div>
@@ -50,7 +50,8 @@
         :tag_ids,
         Tag.order(name: :asc),
         :id,
-        :humanized_name,
+        # :humanized_name,
+        :name,
         {},
         {multiple: :true, class: 'chosen-select'}
         ) %>
@@ -58,22 +59,17 @@
 
     <div>
         <%=c.label(:twitter)%>
-        <%c.text_field(:twitter)%>
+        <%=c.text_field(:twitter)%>
     </div>
 
     <div>
         <%=c.label(:logo)%>
-        <%c.text_field(:logo)%>
+        <%=c.text_field(:logo)%>
     </div>
 
     <div>
         <%=c.label(:published)%>
         <%=c.check_box(:published)%>
-    </div>
-
-    <div>
-        <%=c.label(:owner_id)%>
-        <%c.text_field(:owner_id)%>
     </div>
 
     <%= c.submit %>
