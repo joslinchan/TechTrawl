@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
         @company = Company.new company_params
         @company.user = User.last 
       
-
+        # render json: @company
         if @company.save
             flash[:success] = "Company created!"
             redirect_to company_path(@company)
@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
     private
     def company_params
         params.require(:company).permit(:name, 
-            :adress, 
+            :address, 
             :postal_code,
             :overview, 
             :employees, 
