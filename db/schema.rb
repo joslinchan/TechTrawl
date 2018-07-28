@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2018_07_28_193257) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_events_on_company_id"
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id"
     t.bigint "company_id"
@@ -60,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_07_28_193257) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "events", "companies"
   add_foreign_key "taggings", "companies"
   add_foreign_key "taggings", "tags"
   add_foreign_key "users", "companies"
