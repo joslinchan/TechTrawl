@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
   
-  resources :companies do
-  end
-  # resources :tags,
+  resources :companies 
+  
 
   # get('/', { to: 'company#index', as: 'home' })
-  get('/', { to: 'user#new', as: 'home' })
+    get('/', { to: 'user#new', as: 'home' })
 end
