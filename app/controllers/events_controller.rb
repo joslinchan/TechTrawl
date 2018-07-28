@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = EventRetriever.new.events
+    render json: @events
   end
 
 end
