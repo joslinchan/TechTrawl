@@ -11,6 +11,27 @@
 
   <body>
 
+    <div class="container-fluid">
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %> alert-dismissible fade show">
+        <%= message %>
+      </div>
+    <% end %>
+
     <%= yield %>
+
+    <footer class="page-footer">
+      <% if current_user.present? %>
+        <p>Hi, <%= current_user.first_name %></p>
+        <%= link_to(
+            'Sign Out',
+            session_path,
+            method: :delete
+        ) %>
+      <% else %>
+        <%= link_to('Sign In', new_session_path) %> |
+        <%= link_to('Sign Up', new_user_path) %>
+      <% end %>
+    </footer>
   </body>
 </html>
