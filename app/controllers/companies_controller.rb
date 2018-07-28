@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
 
     def index
+        @companies = Company.all
     end
 
     def new
@@ -35,8 +36,13 @@ class CompaniesController < ApplicationController
     end
 
     def show
+         @company = Company.find(params[:id])
+        
     end
 
+
+    def edit
+    end
 
     private
     def company_params
