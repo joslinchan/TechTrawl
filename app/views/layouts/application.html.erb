@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-sm navbar-primary bg-light">
+        <span class="navbar-brand mb-0 h1 text-primary">TechTrawl</span>
+        <div class="nav navbar-nav ml-auto">
+          <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <%= link_to('Directory', home_path, class: "nav-link") %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('Events', home_path, class: "nav-link") %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('News', home_path, class: "nav-link") %>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="container-fluid">
     <% flash.each do |type, message| %>
@@ -20,18 +36,24 @@
 
     <%= yield %>
 
-    <footer class="page-footer">
-      <% if current_user.present? %>
-        <p>Hi, <%= current_user.first_name %></p>
-        <%= link_to(
-            'Sign Out',
-            session_path,
-            method: :delete
-        ) %>
-      <% else %>
-        <%= link_to('Sign In', new_session_path) %> |
-        <%= link_to('Sign Up', new_user_path) %>
-      <% end %>
+    <footer class="page-footer font-small bg-light">
+      <div class="container mx-0 my-3">
+        <div class="row">
+          <div class="col-6">
+            <% if current_user.present? %>
+              <p>Hi, <%= current_user.first_name %></p>
+              <%= link_to(
+                  'Sign Out',
+                  session_path,
+                  method: :delete
+              ) %>
+            <% else %>
+              <%= link_to('Sign In', new_session_path) %><br>
+              <%= link_to('Sign Up', new_user_path) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
