@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
   # resources :tags,
 
-  get('/', { to: 'company#index', as: 'home' })
-  # get('/', { to: 'user#new', as: 'home' })
+  # get('/', { to: 'company#index', as: 'home' })
+  get('/', { to: 'user#new', as: 'home' })
 end
