@@ -1,0 +1,79 @@
+
+<h1>New Organization</h1>
+
+<%= form_for(@company) do |c|%>
+    
+    <% if @company.errors.present? %>
+        <p>
+        <%= @company.errors.full_messages.join(', ') %>
+        </p>
+    <% end %>
+
+    <div>
+        <%=c.label(:name)%>
+        <%=c.text_field(:name)%>
+    </div>
+
+    <div>
+        <%=c.label(:address)%>
+        <%=c.text_field(:address)%>
+    </div>
+
+    <div>
+        <%=c.label(:postal_code)%>
+        <%=c.text_field(:postal_code)%>
+    </div>
+
+    <div>
+        <%=c.label(:overview)%>
+        <%=c.text_area(:overview)%>
+    </div>
+
+    <div>
+        <%=c.label(:employees)%>
+        <%=c.number_field(:employees)%>
+    </div>
+
+    <div>
+        <%=c.label(:tech_team)%>
+        <%=c.number_field(:tech_team)%>
+    </div>
+
+    <div>
+        <%=c.label(:website)%>
+        <%=c.text_field(:website)%>
+    </div>
+
+    <div>
+        <%= c.label(:tags) %>
+        <%= c.collection_select(
+        :tag_ids,
+        Tag.order(name: :asc),
+        :id,
+        # :humanized_name,
+        :name,
+        {},
+        {multiple: :true, class: 'chosen-select'}
+        ) %>
+    </div>
+
+    <div>
+        <%=c.label(:twitter)%>
+        <%=c.text_field(:twitter)%>
+    </div>
+
+    <div>
+        <%=c.label(:logo)%>
+        <%=c.text_field(:logo)%>
+    </div>
+
+    <div>
+        <%=c.label(:published)%>
+        <%=c.check_box(:published)%>
+    </div>
+
+    <%= c.submit %>
+
+<%end%>
+
+
