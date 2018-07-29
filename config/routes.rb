@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :companies 
 
-  resources :events, only: [:index]
+  resources :events, only: [:index, :create]
 
   get '/', to: 'companies#index', as: 'home'
 
