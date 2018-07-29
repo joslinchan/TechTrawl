@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
     before_action :authorize_user!, only: [:create, :edit, :update]
 
     def index
-        @companies = Company.search(params[:term])
+        @companies = Company.search(params[:term]).order(name: :asc).paginate(:per_page => 10, :page => params[:page])
     end
 
     def new
