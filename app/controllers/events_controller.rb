@@ -17,6 +17,8 @@ class EventsController < ApplicationController
     if @event.save
     end
 
+    end
+
   end
 
 end
