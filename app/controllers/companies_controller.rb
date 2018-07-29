@@ -69,7 +69,6 @@ class CompaniesController < ApplicationController
     end
 
     def authorize_user!
-        @company = Company.find params[:id]
         unless can?(:crud, @company)
             flash[:danger] = "Access Denied!"
             redirect_to company_path(@company)
