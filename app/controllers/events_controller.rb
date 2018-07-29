@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
 
   def index
-    @events = EventRetriever.new.events
+    event_api = EventRetriever.new.events
 
-    @events['events'].each do |event|
+    event_api['events'].each do |event|
       @event = Event.new(
         meetup_id: event["id"],
         name: event["name"],
@@ -16,6 +16,8 @@ class EventsController < ApplicationController
 
     if @event.save
     end
+
+    @events = Event.search(params[:search]).order(start_time: :asc).paginate(:per_page => 10, :page => params[:page])
 
     end
 
