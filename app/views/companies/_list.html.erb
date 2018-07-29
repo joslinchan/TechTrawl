@@ -1,18 +1,23 @@
 <h2 class="my-3 text-center">Directory</h2>
+<div class="container">
+    <div class="row">
 <% @companies.each do |company| %>
-    <ul>
-
-        <li 
-        style="list-style-type: none; border-radius: 5px" 
-        class="border border-dark p-3">
+<div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="card mt-4">
+        <div class="card-body">
+ 
+         <div class="card-title">
             <%= link_to( 
                 company.name, 
                 company_path(company), 
                 class: "text-dark") %>
-        </li>
-    </ul>
-    
+         </div>
+        </div>
+    </div>
+    </div>
 <% end %>
+</div>
+</div>
 
 <%= will_paginate @companies%>
 
