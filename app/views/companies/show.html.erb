@@ -1,16 +1,23 @@
 <div class="show">
 <h2><%= @company.name %></h2>
- <%= link_to @company.website, @company.website %>
+<%= link_to "(visit website)", @company.website %>
+<br>
+<img src="<%= @company.logo %>" style="width: 200px">
+<br><br>
 <p><%= @company.overview %></p>
 
 <p>Tags:
 <%= @company.tags.order(name: :asc).map{ |t| t.name}.join(', ') %>
 </p>
 
-<p> tech_team: <%= @company.tech_team %> </p>
-<p> employees: <%= @company.employees %> </p>
+<p> Team Size: <%= @company.employees %> </p>
+<p> Tech Team: <%= @company.tech_team %> </p>
 <p><%= link_to @company.twitter, @company.twitter %></p>
-<p><%= link_to  @company.logo, @company.logo %></p>
+<p>Manager: <%= @company.user.full_name %></p>
+
+<a class="twitter-timeline" data-width="300" data-tweet-limit="3" href="<%= @company.twitter %>">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 
 </div>
 
