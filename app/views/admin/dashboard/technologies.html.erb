@@ -1,0 +1,18 @@
+<h1>Technologies</h1>
+
+<table class="table table-bordered container">
+  <thead>
+    <tr>
+      <th scope="col">Technology Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tags.each do |tag| %>
+    <tr>
+      <td><%= tag.name %></td>
+      <td> <%= link_to('remove', home_path)%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

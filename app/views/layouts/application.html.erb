@@ -22,11 +22,38 @@
             <%= link_to('Events', home_path, class: "nav-link") %>
           </li>
           <li class="nav-item">
-            <%= link_to('News', home_path, class: "nav-link") %>
+            <%= link_to('Articles', home_path, class: "nav-link") %>
           </li>
         </ul>
       </div>
     </nav>
+
+     <% if current_user&.admin? %>
+        <nav class="navbar navbar-expand-sm navbar-primary bg-light">
+          <span class="navbar-brand mb-0 h1 text-primary">Admin Dashboar</span>
+          <div class="nav navbar-nav m-auto">
+            <ul class="nav">
+              <li class="nav-item">
+                <%= link_to('Organization', admin_dashboard_organizations_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Events', events_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('News', home_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Users', admin_dashboard_index_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Technologies', admin_dashboard_technologies_path, class: "nav-link") %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      <% end %>
+
+
 
     <div class="container-fluid">
     <% flash.each do |type, message| %>
@@ -43,8 +70,9 @@
           <div class="col-6">
             <% if current_user.present? %>
               <p>Hi, <%= current_user.first_name %></p>
+              <%= link_to('Submit Organization', new_company_path)%><br>
               <%= link_to(
-                  'Sign Out',
+                'Sign Out',
                   session_path,
                   method: :delete
               ) %>
@@ -59,3 +87,9 @@
     </footer>
   </body>
 </html>
+
+
+
+
+
+

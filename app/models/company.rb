@@ -4,6 +4,7 @@ class Company < ApplicationRecord
     has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
     has_many :events, dependent: :destroy
+    has_many :articles, dependent: :destroy
 
     validates(:name, presence: true, uniqueness: true)
 

@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-    before_action :authorize_user!, only: [ :edit, :update]
+    before_action :authorize_user!, only: [:create, :edit, :update]
 
     def index
         @companies = Company.search(params[:term])
@@ -41,7 +41,6 @@ class CompaniesController < ApplicationController
         
     end
 
-
     def edit
     end
 
@@ -52,8 +51,10 @@ class CompaniesController < ApplicationController
 =end
     def destroy
         @company ||= Company.find params[:id]
+
         @company.destroy
-        redirect_to company_path(@company)
+
+        redirect_to company_path
     end
 
     private
