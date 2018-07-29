@@ -11,8 +11,10 @@
     <% @tags.each do |tag| %>
     <tr>
       <td><%= tag.name %></td>
-      <td> <%= link_to('remove', home_path)%></td>
+      <td> <%= link_to('remove', tag_path(tag.id),
+      method: :delete)%></td>
     </tr>
     <%end%>
   </tbody>
 </table>
+

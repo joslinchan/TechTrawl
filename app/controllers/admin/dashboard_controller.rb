@@ -13,6 +13,10 @@ class Admin::DashboardController < ApplicationController
     @tags = Tag.all
   end
 
+  def users
+    @users = User.all
+  end
+
   private
   def authorize_admin!
     unless current_user.admin?

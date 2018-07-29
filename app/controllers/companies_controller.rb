@@ -33,7 +33,7 @@ class CompaniesController < ApplicationController
             redirect_to company_path(@company.id)
           else
             render :edit
-          end 
+        end 
     end
 
     def show
@@ -72,7 +72,7 @@ class CompaniesController < ApplicationController
             :user_id,
             :term,
             tag_ids: [])
-      end
+    end
 
     def authorize_user!
         unless can?(:crud, @company)
