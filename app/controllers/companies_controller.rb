@@ -41,14 +41,15 @@ class CompaniesController < ApplicationController
         
     end
 
-
     def edit
     end
 
     def destroy
         @company ||= Company.find params[:id]
+
         @company.destroy
-        redirect_to company_path(@company)
+
+        redirect_to company_path
     end
 
     private
