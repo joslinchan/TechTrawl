@@ -49,7 +49,7 @@ csv.each do |row|
     c.employees = row['employees']
     c.tech_team = row['tech_team']
     c.website = row['website']
-    c.tags = tags.shuffle.slice(0, rand(1..4))
+    c.tags = tags.shuffle.slice(0, rand(2..5))
     c.twitter = row['twitter']
     c.logo = row['logo']
     c.published = row['published']
