@@ -10,4 +10,10 @@ Rails.application.routes.draw do
 
   get '/', to: 'companies#index', as: 'home'
 
+  namespace :admin do
+    
+    resources :dashboard, only: [:index]
+    
+  end
+
 end
