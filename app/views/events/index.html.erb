@@ -10,21 +10,27 @@
     <% end %>
   <% end %>
 
+<div class="container">
 <%= form_tag events_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+    <%= text_field_tag :search, params[:search], class:"form-control" %>
+    <%= submit_tag "Search", :name => nil, class:"btn btn-outline-dark mt-2", style:"float: right;" %>
 <% end %>
+</div>
 
-  <ul>
+<div class="container-fluid" style="margin-top: 64px;">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-success">
+    Events
+    </li>
       <% @events.each do |event| %>
-        <li>
+        <li class="list-group-item">
         <%= link_to event.name, event.link %>
-          <%= event.start_time %>
+          <%= event.start_time.strftime("%B %d, %Y") %>
         </li>
       <% end %>
   </ul>
-</div>
+  </div>
 
-<%= will_paginate @events%>
+
+<%= will_paginate @events, class:"text-center my-2" %>
+</div>
