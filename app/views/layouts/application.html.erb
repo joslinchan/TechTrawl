@@ -12,7 +12,10 @@
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a href="/" class="navbar-brand text-success"><%= image_tag 'TechTrawl_logo', style:"width: 52px" %>TechTrawl</a>
+      <a href="/" class="navbar-brand text-success">
+        <%= image_tag 'TechTrawl_logo', style:"width: 52px" %>
+        TechTrawl
+      </a>
       <button 
       class="navbar-toggler" 
       type="button" 
@@ -81,6 +84,7 @@
         <%= message %>
       </div>
     <% end %>
+    </div>
 
     <div class="container mt-4">
     <%= yield %>
@@ -88,9 +92,8 @@
 
     <footer class="page-footer font-small">
     <nav class="navbar bg-dark">
-      <div class="container mx-0 my-3">
-        <div class="row">
-          <div class="col-x">
+<div class="container mx-0 my-3 d-flex">
+          <div class="flex-fill">
             <% if current_user.present? %>
               <p>Hi, <%= current_user.first_name %></p>
               <%= link_to('Submit Organization', new_company_path)%><br>
@@ -101,15 +104,20 @@
                   class: "text-light"
               ) %>
             <% else %>
-              <%= link_to('Sign In', new_session_path, class: "text-light") %><br>
-              <%= link_to('Sign Up', new_user_path, class: "text-light") %><br>
+              <%= link_to('Sign In', new_session_path, class: "text-light") %>
+              <br />
+              <%= link_to('Sign Up', new_user_path, class: "text-light") %>
+              <br />
               <%= link_to('About', about_path, class: "text-light") %>
             <% end %>
-          </div>
-        </div>
-      </div>
-      </nav>
+            </div>
+            <div class="flex-fill">
+                <%= image_tag 'TechTrawl_logo', style:"width: 64px; float: right" %>
+             
+            </div>
+    </nav>
     </footer>
+
   </body>
 </html>
 

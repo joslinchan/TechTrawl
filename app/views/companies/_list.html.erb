@@ -1,7 +1,6 @@
-<h1>List of Companies</h1>
+<h2 class="my-3 text-center">Directory</h2>
 <% @companies.each do |company| %>
     <ul>
-        <li style="list-style-type: none"><%= link_to( company.name, company_path(company), class: "text-dark") %></li>
-    </ul>
-    
+        <li style="list-style-type: none; border-radius: 5px" class="border border-dark p-3"><%= link_to( company.name, company_path(company), class: "text-dark") %></li>
+    </ul>  
 <% end %>
