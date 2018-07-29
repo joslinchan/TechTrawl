@@ -70,8 +70,9 @@
           <div class="col-6">
             <% if current_user.present? %>
               <p>Hi, <%= current_user.first_name %></p>
+              <%= link_to('Submit Organization', new_company_path)%><br>
               <%= link_to(
-                  'Sign Out',
+                'Sign Out',
                   session_path,
                   method: :delete
               ) %>
@@ -86,3 +87,9 @@
     </footer>
   </body>
 </html>
+
+
+
+
+
+
