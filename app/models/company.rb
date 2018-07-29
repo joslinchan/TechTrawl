@@ -7,6 +7,10 @@ class Company < ApplicationRecord
 
     validates(:name, presence: true, uniqueness: true)
 
+    #scope :tech_team, -> (number) { where("tech_team >= 10", number }
+
+
+
     def self.search(term)
         if term 
             where("name ILIKE ?", "%#{term}%").order("name ASC")
