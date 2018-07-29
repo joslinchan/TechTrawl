@@ -1,0 +1,17 @@
+<h1>News</h1>
+
+<% @top_headlines.each do |article| %>
+
+    <div> 
+    
+        <img src="<%= article.urlToImage %>"><br>
+        <%= link_to article.title, article.url %><br>
+        <%= article.publishedAt %> - Source:
+        <%= link_to article.name, article.url %><br>
+        <%= article.description %>
+        <hr>
+
+    </div>  
+
+
+<% end %>
