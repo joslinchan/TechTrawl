@@ -132,6 +132,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     mustermann (1.0.2)
+    news-api (0.0.0)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -268,6 +269,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (>= 3.0.5, < 3.2)
+  news-api
   pg (>= 0.18, < 2.0)
   pry
   pry-rails

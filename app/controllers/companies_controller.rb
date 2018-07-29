@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+    before_action :authorize_user!, only: [ :edit, :update]
 
     def index
         @companies = if params[:term]
@@ -53,6 +54,11 @@ class CompaniesController < ApplicationController
         .or(where("tag ILIKE ?", "%#{query}%"))
     end 
 =end
+    def destroy
+        @company ||= Company.find params[:id]
+        @company.destroy
+        redirect_to company_path(@company)
+    end
 
     private
     def company_params
@@ -67,11 +73,33 @@ class CompaniesController < ApplicationController
             :logo, 
             :published, 
             :user_id,
+<<<<<<< HEAD
             :term,
             tag_ids: [])
       end
+=======
+        tag_ids: [])
+    end
+
+    def authorize_user!
+        @company = Company.find params[:id]
+        unless can?(:crud, @company)
+            flash[:danger] = "Access Denied!"
+            redirect_to company_path(@company)
+        end
+    end
+>>>>>>> origin/integration
 end
 
 
 
 
+    
+
+
+
+   
+
+     
+
+   
