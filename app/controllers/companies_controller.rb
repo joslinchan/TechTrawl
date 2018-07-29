@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+    before_action :authorize_user!, only: [ :edit, :update]
 
     def index
         @companies = Company.all
@@ -44,6 +45,12 @@ class CompaniesController < ApplicationController
     def edit
     end
 
+    def destroy
+        @company ||= Company.find params[:id]
+        @company.destroy
+        redirect_to company_path(@company)
+    end
+
     private
     def company_params
         params.require(:company).permit(:name, 
@@ -57,10 +64,27 @@ class CompaniesController < ApplicationController
             :logo, 
             :published, 
             :user_id,
-            tag_ids: [])
-      end
+        tag_ids: [])
+    end
+
+    def authorize_user!
+        @company = Company.find params[:id]
+        unless can?(:crud, @company)
+            flash[:danger] = "Access Denied!"
+            redirect_to company_path(@company)
+        end
+    end
 end
 
 
 
 
+    
+
+
+
+   
+
+     
+
+   
