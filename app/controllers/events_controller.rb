@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     if @event.save
     end
 
-    @events = Event.order(start_time: :asc)
+    @events = Event.search(params[:search]).order(start_time: :asc).paginate(:per_page => 10, :page => params[:page])
 
     end
 
