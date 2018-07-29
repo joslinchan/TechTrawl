@@ -1,5 +1,15 @@
 <h1>Technologies</h1>
 
+ 
+<%= form_for @tag do |t| %>
+  <div>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+  </div>
+
+  <%= t.submit "Add"%>
+<%end%>
+
 <table class="table table-bordered container">
   <thead>
     <tr>

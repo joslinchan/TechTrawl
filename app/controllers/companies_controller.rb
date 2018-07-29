@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
     
     def create
         @company = Company.new company_params
-        @company.user = User.last 
+        @company.user = current_user 
       
         # render json: @company
         if @company.save

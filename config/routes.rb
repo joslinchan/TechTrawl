@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy, :update, :edit]
   resource :session, only: [:new, :create, :destroy]
   
+  resources :tags, shallow: true, only: [:destroy, :create]
 
-  resources :companies do 
+  resources :companies 
+  
 
-  resources :tags, shallow: true, only: [:destroy]
 
-  end
 
   resources :articles, only: [:index]
 

@@ -10,6 +10,7 @@ class Admin::DashboardController < ApplicationController
   end
 
   def technologies
+    @tag = Tag.new
     @tags = Tag.all
   end
 
