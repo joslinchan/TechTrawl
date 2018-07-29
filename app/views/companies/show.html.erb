@@ -17,8 +17,21 @@
 
 <a class="twitter-timeline" data-width="300" data-tweet-limit="3" href="<%= @company.twitter %>">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<br>
+<h2> Company Events: </h2>
+<% @company.events.each do |event| %>
+    <%= link_to event.name, event.link %>
+    <%= event.start_time %>
+<% end %>
 
-
+<br>
+<h2> Company News: </h2>
+<% @company.articles.each do |article| %>
+    <div>
+    <img src="<%= article.url_to_image %>" style="width: 200px">
+    <%= link_to article.title, article.url %>
+    </div>
+<% end %>
 </div>
 
 
