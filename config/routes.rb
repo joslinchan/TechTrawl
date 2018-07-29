@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :companies 
 
-  resources :news, only: [:index]
+  resources :articles, only: [:index]
 
   resources :events, only: [:index, :create]
 
