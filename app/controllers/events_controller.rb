@@ -2,20 +2,21 @@ class EventsController < ApplicationController
 
   def index
     @events = EventRetriever.new.events
+
+    @events['events'].each do |event|
+      @event = Event.new(
+        meetup_id: event["id"],
+        name: event["name"],
+        start_time: event["local_date"],
+        end_time: event["local_date"],
+        company_id: Company.all.sample.id,
+        urlname: event["group"]["urlname"],
+        link: event["link"]
+     )
+
+    if @event.save
+    end
+
   end
-
-=begin   
-def create
-    @event = EventRetriever.new.events event_params
-    @event.save
-    redirect_to :index
-  end
-
-  private
-  def event_params
-    params.require(:event).permit(:name, :local_date)
-  end 
-=end
-
 
 end
