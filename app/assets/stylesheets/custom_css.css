@@ -1,0 +1,7 @@
+a:link, a:visited  {
+  text-decoration: none;
+}
+
+a:hover { 
+  color: #85bc4b;
+}
