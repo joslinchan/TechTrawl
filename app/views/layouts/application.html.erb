@@ -28,6 +28,33 @@
       </div>
     </nav>
 
+     <% if current_user&.admin? %>
+        <nav class="navbar navbar-expand-sm navbar-primary bg-light">
+          <span class="navbar-brand mb-0 h1 text-primary">Admin Dashboar</span>
+          <div class="nav navbar-nav m-auto">
+            <ul class="nav">
+              <li class="nav-item">
+                <%= link_to('Organization', new_company_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Events', events_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('News', home_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Users', admin_dashboard_index_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Technologies', home_path, class: "nav-link") %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      <% end %>
+
+
+
     <div class="container-fluid">
     <% flash.each do |type, message| %>
       <div class="alert alert-<%= type %> alert-dismissible fade show">
