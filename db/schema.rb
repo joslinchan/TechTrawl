@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_29_025248) do
+ActiveRecord::Schema.define(version: 2018_07_29_034813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.string "name"
+    t.text "description"
+    t.string "url_to_image"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -41,16 +51,6 @@ ActiveRecord::Schema.define(version: 2018_07_29_025248) do
     t.datetime "updated_at", null: false
     t.string "urlname"
     t.index ["company_id"], name: "index_events_on_company_id"
-  end
-
-  create_table "news", force: :cascade do |t|
-    t.string "title"
-    t.string "name"
-    t.text "description"
-    t.string "url_to_image"
-    t.datetime "published_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|

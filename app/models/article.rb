@@ -1,4 +1,4 @@
-class News < ApplicationRecord
+class Article < ApplicationRecord
     
     belongs_to :company
 
