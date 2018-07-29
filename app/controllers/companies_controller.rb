@@ -1,7 +1,11 @@
 class CompaniesController < ApplicationController
 
     def index
-        @companies = Company.all
+        @companies = if params[:term]
+            Company.where("name ILIKE ?", "%#{params[:term]}%")
+        else
+            @companies = Company.all
+        end
     end
 
     def new
@@ -44,6 +48,12 @@ class CompaniesController < ApplicationController
     def edit
     end
 
+=begin     def search(query)
+        where("name ILIKE ?", "%#{query}%")
+        .or(where("tag ILIKE ?", "%#{query}%"))
+    end 
+=end
+
     private
     def company_params
         params.require(:company).permit(:name, 
@@ -57,6 +67,7 @@ class CompaniesController < ApplicationController
             :logo, 
             :published, 
             :user_id,
+            :term,
             tag_ids: [])
       end
 end
