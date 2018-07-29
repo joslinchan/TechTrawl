@@ -11,42 +11,42 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-sm navbar-primary bg-light">
-        <span class="navbar-brand mb-0 h1 text-primary">TechTrawl</span>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1 text-success">TechTrawl</span>
         <div class="nav navbar-nav ml-auto">
           <ul class="nav justify-content-end">
           <li class="nav-item">
-            <%= link_to('Directory', home_path, class: "nav-link") %>
+            <%= link_to('Directory', home_path, class: "nav-link text-light") %>
           </li>
           <li class="nav-item">
-            <%= link_to('Events', events_path, class: "nav-link") %>
+            <%= link_to('Events', events_path, class: "nav-link text-light") %>
           </li>
           <li class="nav-item">
-            <%= link_to('Articles', articles_path, class: "nav-link") %>
+            <%= link_to('Articles', articles_path, class: "nav-link text-light") %>
           </li>
         </ul>
       </div>
     </nav>
 
      <% if current_user&.admin? %>
-        <nav class="navbar navbar-expand-sm navbar-primary bg-light">
-          <span class="navbar-brand mb-0 h1 text-primary">Admin Dashboar</span>
+        <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #e0eed0">
+          <span class="navbar-brand mb-0 h1 text-dark">Admin Dashboard</span>
           <div class="nav navbar-nav m-auto">
             <ul class="nav">
               <li class="nav-item">
-                <%= link_to('Organization', admin_dashboard_organizations_path, class: "nav-link") %>
+                <%= link_to('Organization', admin_dashboard_organizations_path, class: "nav-link text-dark") %>
               </li>
               <li class="nav-item">
-                <%= link_to('Events', events_path, class: "nav-link") %>
+                <%= link_to('Events', events_path, class: "nav-link text-dark") %>
               </li>
               <li class="nav-item">
-                <%= link_to('News', home_path, class: "nav-link") %>
+                <%= link_to('News', home_path, class: "nav-link text-dark") %>
               </li>
               <li class="nav-item">
-                <%= link_to('Users', admin_dashboard_index_path, class: "nav-link") %>
+                <%= link_to('Users', admin_dashboard_index_path, class: "nav-link text-dark") %>
               </li>
               <li class="nav-item">
-                <%= link_to('Technologies', admin_dashboard_technologies_path, class: "nav-link") %>
+                <%= link_to('Technologies', admin_dashboard_technologies_path, class: "nav-link text-dark") %>
               </li>
             </ul>
           </div>
@@ -62,7 +62,9 @@
       </div>
     <% end %>
 
+    <div class="container mt-4">
     <%= yield %>
+    </div>
 
     <footer class="page-footer font-small bg-light">
       <div class="container mx-0 my-3">

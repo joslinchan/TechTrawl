@@ -1,7 +1,7 @@
 <h1>List of Companies</h1>
 <% @companies.each do |company| %>
     <ul>
-        <li><%= link_to company.name, company_path(company)%></li>
+        <li style="list-style-type: none"><%= link_to( company.name, company_path(company), class: "text-dark") %></li>
     </ul>
     
 <% end %>
