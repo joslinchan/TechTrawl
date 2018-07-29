@@ -41,9 +41,6 @@ class CompaniesController < ApplicationController
         
     end
 
-    def edit
-    end
-
 =begin     def search(query)
         where("name ILIKE ?", "%#{query}%")
         .or(where("tag ILIKE ?", "%#{query}%"))
@@ -54,7 +51,7 @@ class CompaniesController < ApplicationController
 
         @company.destroy
 
-        redirect_to company_path
+        redirect_to admin_dashboard_organizations_path
     end
 
     private

@@ -17,8 +17,7 @@
       <td><%=user.email%></td> 
       <td><%=user.company_id%></td>       
       <td>
-        <%= link_to('edit', user_path(user.id), 
-        method: :patch)%>
+        <%= link_to('edit', edit_user_path(user))%>
         <%= link_to('remove', user_path(user.id),
         method: :delete)%>
       </td>    

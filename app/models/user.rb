@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-     has_secure_password
+    has_secure_password
 
     has_one :companies, dependent: :nullify
 
@@ -14,6 +14,6 @@ class User < ApplicationRecord
     )
     
     def full_name
-    first_name + " " + last_name
+        first_name + " " + last_name
     end
 end
