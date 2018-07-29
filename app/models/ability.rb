@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
 
-    alias_action(:read, :update, :edit, to: :crud)
+    alias_action(:read, :update, :edit, :create, to: :crud)
     # Define abilities for the passed in user here. For example:
     
       user ||= User.new # guest user (not logged in)

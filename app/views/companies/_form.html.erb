@@ -67,10 +67,12 @@
         <%=c.text_field(:logo)%>
     </div>
 
-    <div>
-        <%=c.label(:published)%>
-        <%=c.check_box(:published)%>
-    </div>
+    <% if current_user&.admin?%>
+        <div>
+            <%=c.label(:published)%>
+            <%=c.check_box(:published)%>
+        </div>
+    <%end%>
 
     <%= c.submit %>
 
