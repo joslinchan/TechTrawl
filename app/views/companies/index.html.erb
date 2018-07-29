@@ -1,6 +1,6 @@
 <%= form_tag(companies_path, method: :get) do %>
   <%= text_field_tag :term, params[:term] %>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", name: nil %>
 <% end %>
 
 <%= render "list" %>

@@ -73,13 +73,9 @@ class CompaniesController < ApplicationController
             :logo, 
             :published, 
             :user_id,
-<<<<<<< HEAD
             :term,
             tag_ids: [])
       end
-=======
-        tag_ids: [])
-    end
 
     def authorize_user!
         @company = Company.find params[:id]
@@ -88,7 +84,6 @@ class CompaniesController < ApplicationController
             redirect_to company_path(@company)
         end
     end
->>>>>>> origin/integration
 end
 
 
