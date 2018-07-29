@@ -2,11 +2,6 @@ class EventsController < ApplicationController
 
   def index
     @events = EventRetriever.new.events
-    @test = @events["events"].map { |k, v| k['name'] }
-    # @test = @events["events"].map { |(key, val)| key == 'name' }
-
-    #render json: @events
-    #@events = Event.order(created_at: :desc)
   end
 
   def create

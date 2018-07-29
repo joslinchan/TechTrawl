@@ -14,6 +14,17 @@ class EventRetriever
   def run
   end
 =end
+def create_events
+  events = EventRetriever.new.events
+  events["events"].each do |key, value|
+    Event.create(
+      name: key['name'],
+      start_time: key['local_date'],
+      end_time: key['local_date'],
+      company: Company.sample
+    )
+  end
+end
 
 =begin run
   -fetch
