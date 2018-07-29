@@ -6,4 +6,12 @@ class Company < ApplicationRecord
     has_many :events, dependent: :destroy
 
     validates(:name, presence: true, uniqueness: true)
+
+    def self.search(term)
+        if term 
+            where("name ILIKE ?", "%#{term}%").order("name ASC")
+        else 
+            order("name ASC")
+        end
+    end
 end

@@ -2,11 +2,7 @@ class CompaniesController < ApplicationController
     before_action :authorize_user!, only: [ :edit, :update]
 
     def index
-        @companies = if params[:term]
-            Company.where("name ILIKE ?", "%#{params[:term]}%")
-        else
-            @companies = Company.all
-        end
+        @companies = Company.search(params[:term])
     end
 
     def new
