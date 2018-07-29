@@ -1,0 +1,27 @@
+
+<h1>Users</h1>
+
+<table class="table table-bordered container">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">email</th>
+      <th scope="col">Organization</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%=user.email%></td> 
+      <td><%=user.company_id%></td>       
+      <td>
+        <%= link_to('edit', edit_user_path(user))%>
+        <%= link_to('remove', user_path(user.id),
+        method: :delete)%>
+      </td>    
+    </tr>
+    <%end%>
+  </tbody>
+</table>
