@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :events, only: [:index]
 
   get '/', to: 'companies#index', as: 'home'
+  get '/about', to: 'about#index'
 
 end
