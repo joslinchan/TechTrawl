@@ -1,14 +1,21 @@
 <div class="container">
 
-  <%= month_calendar do |date| %>
+  <%= month_calendar events: @events do |date, event| %>
     <%= date.day %>
+
+    <% event.each do |e| %>
+      <div  style="font-size: 0.8rem">
+        <%= link_to e.name, e.link %>
+      </div>
+    <% end %>
   <% end %>
 
+
   <ul>
-      <% @events["events"].each do |key, value| %>
+      <% @events.each do |event| %>
         <li>
-        <%= link_to key['name'], key["link"] %>
-          <%= key['local_date'] %>
+        <%= link_to event.name, event.link %>
+          <%= event.start_time %>
         </li>
       <% end %>
   </ul>

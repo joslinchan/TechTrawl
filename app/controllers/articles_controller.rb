@@ -4,9 +4,13 @@ class ArticlesController < ApplicationController
     def index
         newsapi = News.new("7cc1435c50a14ace808ab284ec562f9c")
 
-        @top_headlines = newsapi.get_top_headlines(
-            q: 'startup'
-        )
+        @top_headlines = newsapi.get_everything(
+            q: 'tech',
+            from: '2018-07-01',
+            to: '2018-07-30',
+            language: 'en',
+            sortBy: 'relevancy',
+            page: 2)
 
         @top_headlines.each do |article|
             @article = Article.new(
