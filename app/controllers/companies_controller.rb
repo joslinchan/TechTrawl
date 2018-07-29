@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
     before_action :authorize_user!, only: [:create, :edit, :update]
 
     def index
-        @companies = Company.all
+        @companies = Company.search(params[:term])
     end
 
     def new
@@ -44,6 +44,11 @@ class CompaniesController < ApplicationController
     def edit
     end
 
+=begin     def search(query)
+        where("name ILIKE ?", "%#{query}%")
+        .or(where("tag ILIKE ?", "%#{query}%"))
+    end 
+=end
     def destroy
         @company ||= Company.find params[:id]
 
@@ -65,8 +70,9 @@ class CompaniesController < ApplicationController
             :logo, 
             :published, 
             :user_id,
-        tag_ids: [])
-    end
+            :term,
+            tag_ids: [])
+      end
 
     def authorize_user!
         unless can?(:crud, @company)
