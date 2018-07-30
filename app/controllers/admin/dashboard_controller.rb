@@ -10,7 +10,12 @@ class Admin::DashboardController < ApplicationController
   end
 
   def technologies
+    @tag = Tag.new
     @tags = Tag.all
+  end
+
+  def users
+    @users = User.all
   end
 
   private

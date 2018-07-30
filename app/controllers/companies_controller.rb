@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
     
     def create
         @company = Company.new company_params
-        @company.user = User.last 
+        @company.user = current_user 
       
         # render json: @company
         if @company.save
@@ -33,15 +33,12 @@ class CompaniesController < ApplicationController
             redirect_to company_path(@company.id)
           else
             render :edit
-          end 
+        end 
     end
 
     def show
          @company = Company.find(params[:id])
         
-    end
-
-    def edit
     end
 
 =begin     def search(query)
@@ -54,7 +51,7 @@ class CompaniesController < ApplicationController
 
         @company.destroy
 
-        redirect_to company_path
+        redirect_to admin_dashboard_organizations_path
     end
 
     private
@@ -72,7 +69,7 @@ class CompaniesController < ApplicationController
             :user_id,
             :term,
             tag_ids: [])
-      end
+    end
 
     def authorize_user!
         unless can?(:crud, @company)

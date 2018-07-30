@@ -1,4 +1,7 @@
-<h1>Organizations</h1>
+<h1>Organizations <span>
+  <%= link_to('add', new_company_path, class:"btn btn-primary")%>
+</span></h1>
+
 
 <table class="table table-bordered container">
   <thead>
@@ -16,11 +19,14 @@
       <td>
         <%= link_to('show', company_path(company.id))%>
         <%= link_to('edit', edit_company_path(company.id))%>
-        <%= link_to('remove', new_session_path(company.id))%>
+        <%= link_to('remove', company_path(company.id),
+        method: :delete)%>
       </td>    
     </tr>
     <%end%>
   </tbody>
 </table>
+
+
 
 
