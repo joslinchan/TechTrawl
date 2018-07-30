@@ -1,4 +1,4 @@
-
+<div style="margin-bottom:56px;">
 
 <%= form_for(@company) do |c|%>
     
@@ -44,7 +44,7 @@
     </div>
 
     <div>
-        <%= c.label(:tags) %>
+        <%= c.label(:tags, class:"mt-3") %>
         <%= c.collection_select(
         :tag_ids,
         Tag.order(name: :asc),
@@ -77,4 +77,4 @@
 
 <%end%>
 
-
+</div>
