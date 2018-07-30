@@ -1,21 +1,23 @@
 <h1>Events</h1>
 
-<table class="table table-bordered container">
+<div class="card mb-4">
+<table class="table container table-hover table-borderless">
   <thead>
-    <tr>
-      <th scope="col">Meetup Id</th>
-      <th scope="col">Action</th>
+    <tr class="table-success">
+      <th scope="col" style="border-radius:8px 0px 0px 0px">Meetup Id</th>
+      <th scope="col" style="border-radius:0px 8px 0px 0px">Action</th>
     </tr>
   </thead>
   <tbody>
     <% @events.each do |event| %>
     <tr>
-      <td><%= event.urlname %></td>
+      <td style="border-right: 1px solid #e2e8eb"><%= event.urlname %></td>
       <td>
         <%= link_to('remove', event_path(event.id),
-        method: :delete)%>
+        method: :delete, class:"text-warning")%>
       </td>    
     </tr>
     <%end%>
   </tbody>
 </table>
+</div>

@@ -7,11 +7,41 @@
 <br>
 
 <div class="container" style="margin-bottom: 72px;">
-<%= form_tag(companies_path, method: :get) do %>
-  <%= text_field_tag :term, params[:term], class:"form-control" %>
-  <%= submit_tag "Search", name: nil, class:"btn btn-outline-dark mt-2", style:"float: right;" %>
-  <%= link_to "Clear", companies_path, class:"btn btn-outline-dark mt-2 mr-2", style:"float: right;" %>
-<% end %>
+  <%= form_tag(companies_path, method: :get) do %>
+    <%= text_field_tag :term, params[:term], class:"form-control" %>
+    <%= submit_tag "Search", name: nil, class:"btn btn-outline-dark mt-2", style:"float: right;" %>
+    <%= link_to "Clear", companies_path, class:"btn btn-outline-dark mt-2 mr-2", style:"float: right;" %>
+  <% end %>
+
+  <div class="dropdown mt-2 mr-2" style="float:right">
+    <button class="btn btn-outline-success dropdown-toggle" type="button" data-toggle="dropdown">Team Size
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu ">
+      <li><a href="#" style="text-decoration:none"><p class="text-center lead list-group-item-action text-success">10</p></a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">20</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">50</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown mt-2 mr-2" style="float:right">
+    <button class="btn btn-outline-success dropdown-toggle" type="button" data-toggle="dropdown">Team Stack
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu ">
+      <li><a href="#" style="text-decoration:none"><p class="text-center lead list-group-item-action text-success">Autocoder</p></a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">BrightScript</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">Coffeescript</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">Elixir</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">Express</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">Javascript</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">Postgres</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">Rails</a></li>
+      <li><a href="#" style="text-decoration:none" class="text-success"><p class="text-center lead list-group-item-action">Ruby</a></li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
 </div>
 
 <%= render "list" %>

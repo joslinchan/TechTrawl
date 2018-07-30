@@ -1,13 +1,14 @@
 <h1>Admin Dashboard</h1>
 
-<table class="table">
+<div class="card mb-4">
+<table class="table table-borderless table-hover">
   <thead>
-    <tr>
-      <th>First Name</th>
+    <tr class="table-success">
+      <th style="border-radius:8px 0px 0px 0px">First Name</th>
       <th>Last Name</th>
       <th>Email</th>
       <th>Created At</th>
-      <th>Admin?</th>
+      <th style="border-radius:0px 8px 0px 0px">Admin?</th>
     </tr>
   </thead>
 
@@ -17,9 +18,10 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
-        <td><%= user.created_at %></td>
+        <td><%= time_ago_in_words(user.created_at) %></td>
         <td><%= user.admin? %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

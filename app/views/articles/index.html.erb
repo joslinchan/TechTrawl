@@ -1,4 +1,4 @@
-<h2>Articles</h2>
+<h2 class="text-center">Articles</h2>
 
 <% @articles.each do |article| %>
 
@@ -12,7 +12,8 @@
                     <p><strong><%= link_to article.title, article.url, class:"text-dark" %></strong></p>
                     <p><%= time_ago_in_words(article.published_at) %> - Source:
                     <%= link_to article.source, article.url %></p>
-                    <p><%= article.description %></p>
+                    <p><%= article.description %> 
+                    <%= link_to "(read more)", article.url %></p>
                 </div>
             </div>
         </div>
@@ -20,3 +21,5 @@
 
 
 <% end %>
+
+<%= will_paginate @events, class:"text-center my-2 text-dark page-link rounded" %>

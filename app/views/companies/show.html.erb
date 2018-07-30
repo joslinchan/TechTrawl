@@ -25,7 +25,7 @@
                 <a class="twitter-timeline" data-tweet-limit="2" href="<%= @company.twitter %>">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
             <div class="col-4">
-            <h3> <%= @company.name %> News: </h3>
+            <h3 style="margin-top:12px;"> <%= @company.name %> News: </h3>
             <% @company.articles.each do |article| %>
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="<%= article.url_to_image %>">
@@ -37,10 +37,12 @@
             <% end %>
             </div>
             <div class="col-3">
-                <h3> <%= @company.name %> Events: </h3>
+                <h3 style="margin-top:12px;"> <%= @company.name %> Events: </h3>
                 <% @company.events.each do |event| %>
-                    <%= link_to event.name, event.link %>
-                    <%= event.start_time %>
+                    <p style="border: 1px solid #e2e8eb; border-radius: 8px;" class="p-2 text-center">
+                    <%= link_to event.name, event.link %><br />
+                    <%= event.start_time.strftime("%B %d, %Y") %>
+                    </p>
                 <% end %>
             </div>
         </div>

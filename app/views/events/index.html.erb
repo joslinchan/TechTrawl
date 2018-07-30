@@ -1,4 +1,5 @@
 <div class="container">
+<h2 class="text-center">Events</h2>
 
   <%= month_calendar events: @events do |date, event| %>
     <%= date.day %>
@@ -35,5 +36,5 @@
   </div>
 
 
-<%= will_paginate @events, class:"text-center my-2" %>
+<%= will_paginate @events, class:"text-center my-2 text-dark page-link rounded" %>
 </div>
