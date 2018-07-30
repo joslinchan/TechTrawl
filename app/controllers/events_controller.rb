@@ -5,9 +5,7 @@ class EventsController < ApplicationController
       .search(params[:search])
       .order(start_time: :asc)
       .paginate(:per_page => 10, :page => params[:page])
-  end
 
-  def create
     event_api = EventRetriever.new.events
 
     event_api['events'].each do |event|
@@ -19,9 +17,17 @@ class EventsController < ApplicationController
         company_id: Company.all.sample.id,
         urlname: event["group"]["urlname"],
         link: event["link"]
-     )
+      )
     if event.save
     end
     end
+  end
+
+  def destroy
+    @event ||= Event.find params[:id]
+
+    @event.destroy
+
+    redirect_to admin_dashboard_events_path
   end
 end
