@@ -7,10 +7,7 @@ Rails.application.routes.draw do
 
   resources :companies 
   
-
-
-
-  resources :articles, only: [:index]
+  resources :articles, only: [:index, :create]
 
   resources :events, only: [:index, :create]
 
@@ -19,11 +16,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     
-    resources :dashboard, only: [:index] 
+    resources :dashboard, only: [:index]
     get '/dashboard/organizations', to:'dashboard#organizations'
     get '/dashboard/technologies', to:'dashboard#technologies'
     get '/dashboard/users', to:'dashboard#users'
+    get '/dashboard/events', to: 'dashboard#events'
 
   end
-
 end

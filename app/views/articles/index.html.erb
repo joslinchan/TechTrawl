@@ -1,16 +1,14 @@
 <h1>Articles</h1>
 
-<% @top_headlines.each do |article| %>
+<% @articles.each do |article| %>
 
     <div> 
-    
-        <img src="<%= article.urlToImage %>" style="width: 200px"><br>
+        <img src="<%= article.url_to_image %>" style="width: 200px"><br>
         <%= link_to article.title, article.url %><br>
-        <%= article.publishedAt %> - Source:
-        <%= link_to article.name, article.url %><br>
+        <%= article.published_at %> - Source:
+        <%= link_to article.source, article.url %><br>
         <%= article.description %>
         <hr>
-
     </div>  
 
 

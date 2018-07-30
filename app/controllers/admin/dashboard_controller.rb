@@ -18,6 +18,10 @@ class Admin::DashboardController < ApplicationController
     @users = User.all
   end
 
+  def events
+    @events = Event.all
+  end
+
   private
   def authorize_admin!
     unless current_user.admin?
