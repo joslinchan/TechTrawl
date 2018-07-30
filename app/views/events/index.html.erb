@@ -4,28 +4,31 @@
     <%= date.day %>
 
     <% event.each do |e| %>
-      <div  style="font-size: 0.8rem">
-        <%= link_to e.name, e.link %>
+      <div  style="font-size: 0.8rem; width:">
+        <%= link_to e.name, e.link, class:"text-dark border-success" %>
       </div>
     <% end %>
   <% end %>
 
 <div class="container">
 <%= form_tag events_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search], class:"form-control" %>
+    <%= text_field_tag :search, nil, class:"form-control" %>
     <%= submit_tag "Search", :name => nil, class:"btn btn-outline-dark mt-2", style:"float: right;" %>
+    <%= link_to "Clear", events_path, class:"btn btn-outline-dark mt-2 mr-2", style:"float: right;" %>
 <% end %>
 </div>
 
-<div class="container-fluid" style="margin-top: 64px;">
+<div class="container-fluid" style="margin-top: 72px;">
   <ul class="list-group">
     <li class="list-group-item list-group-item-success">
-    Events
+    <h4>Upcoming Events</h4>
     </li>
       <% @events.each do |event| %>
         <li class="list-group-item">
-        <%= link_to event.name, event.link %>
-          <%= event.start_time.strftime("%B %d, %Y") %>
+        <%= link_to event.name, event.link, class:"text-dark" %>
+          <span style="float:right">
+            <%= event.start_time.strftime("%B %d, %Y") %>
+          </span>
         </li>
       <% end %>
   </ul>
