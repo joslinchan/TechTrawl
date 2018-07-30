@@ -5,6 +5,9 @@ class Company < ApplicationRecord
     has_many :events, dependent: :nullify
     has_many :articles, dependent: :nullify
 
+    geocoded_by :full_address
+    after_validation :geocode, :if => :address_changed?
+
     validates(:name, presence: true, uniqueness: true)
 
     #scope :tech_team, -> (number) { where("tech_team >= 10", number }
@@ -17,5 +20,9 @@ class Company < ApplicationRecord
         else 
             order("name ASC")
         end
+    end
+
+    def full_address
+        [address, postal_code].compact.join(', ')
     end
 end

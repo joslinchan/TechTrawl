@@ -1,6 +1,10 @@
 <div class="container">
 <h2 class="my-3 text-center">Directory</h2>
 
+<div style="width: 100%; margin: auto">
+  <div id="map" style="width: 700px; height: 400px">
+</div>
+
 <div class="container" style="margin-bottom: 72px;">
 <%= form_tag(companies_path, method: :get) do %>
   <%= text_field_tag :term, params[:term], class:"form-control" %>
@@ -13,5 +17,12 @@
 
 </div>
 
-
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: { maxZoom: 20}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
 

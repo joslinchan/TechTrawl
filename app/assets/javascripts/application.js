@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require underscore
+//= require gmaps/google
 //= require jquery3
 //= require chosen-jquery
 //= require popper
@@ -17,18 +19,3 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-
-document.addEventListener('DOMContentLoaded', () => {
-
-$(function() {
-    $("#events th a, #events .pagination a").live("click", function() {
-      $.getScript(this.href);
-      return false;
-    });
-    $("#events_search input").keyup(function() {
-      $.get($("#events_search").attr("action"), $("#events_search").serialize(), null, "script");
-      return false;
-    });
-  });
-
-});
