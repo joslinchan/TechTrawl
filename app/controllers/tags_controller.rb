@@ -5,7 +5,7 @@ class TagsController < ApplicationController
         @tag = Tag.new tag_params 
         
         if @tag.save
-            flash[:success] = "Company created!"
+            flash[:success] = "Tag created!"
             redirect_to admin_dashboard_technologies_path
         else
             redirect_to admin_dashboard_technologies_path
