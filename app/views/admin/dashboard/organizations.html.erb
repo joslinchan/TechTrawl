@@ -1,32 +1,32 @@
 <h1>Organizations <span>
-  <%= link_to('add', new_company_path, class:"btn btn-primary")%>
+  <%= link_to('add', new_company_path, class:"btn btn-outline-dark")%>
 </span></h1>
 
-
-<table class="table table-bordered container">
+<div class="card mb-4">
+<table class="table container table-hover table-borderless">
   <thead>
-    <tr>
-      <th scope="col">Organization Name</th>
+    <tr class="table-success">
+      <th scope="col" style="border-radius:8px 0px 0px 0px">Organization Name</th>
       <th scope="col">Published</th>
-      <th scope="col">Action</th>
+      <th scope="col" style="border-radius:0px 8px 0px 0px">Action</th>
     </tr>
   </thead>
   <tbody>
     <% @companies.each do |company| %>
     <tr>
-      <td><%= company.name %></td>
-      <td><%=company.published%></td> 
+      <td style="border-right: 1px solid #e2e8eb"><%= company.name %></td>
+      <td style="border-right: 1px solid #e2e8eb"><%=company.published%></td> 
       <td>
-        <%= link_to('show', company_path(company.id))%>
-        <%= link_to('edit', edit_company_path(company.id))%>
+        <%= link_to('show', company_path(company.id), class:"text-success mr-4")%>
+        <%= link_to('edit', edit_company_path(company.id), class:"text-primary mr-4")%>
         <%= link_to('remove', company_path(company.id),
-        method: :delete)%>
+        method: :delete, class:"text-danger")%>
       </td>    
     </tr>
     <%end%>
   </tbody>
 </table>
-
+</div>
 
 
 
