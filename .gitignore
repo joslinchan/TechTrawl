@@ -243,3 +243,5 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/node,ruby,rails,linux,macos,windows
+# Ignore master key for decrypting credentials and more.
+/config/master.key
