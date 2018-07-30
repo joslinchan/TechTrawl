@@ -1,0 +1,21 @@
+<h1>Events</h1>
+
+<table class="table table-bordered container">
+  <thead>
+    <tr>
+      <th scope="col">Meetup Id</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+    <tr>
+      <td><%= event.urlname %></td>
+      <td>
+        <%= link_to('remove', events_path(event.id),
+        method: :delete)%>
+      </td>    
+    </tr>
+    <%end%>
+  </tbody>
+</table>

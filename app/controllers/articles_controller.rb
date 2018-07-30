@@ -2,9 +2,15 @@ class ArticlesController < ApplicationController
     include HTTParty
 
     def index
+        @articles = Article
+            .order(published_at: :asc)
+            .paginate(:per_page => 10, :page => params[:page])
+    end
+
+    def create
         newsapi = News.new("7cc1435c50a14ace808ab284ec562f9c")
 
-        @top_headlines = newsapi.get_everything(
+        news = newsapi.get_everything(
             q: 'tech',
             from: '2018-07-01',
             to: '2018-07-30',
@@ -12,8 +18,8 @@ class ArticlesController < ApplicationController
             sortBy: 'relevancy',
             page: 2)
 
-        @top_headlines.each do |article|
-            @article = Article.new(
+        news.each do |article|
+            article = Article.new(
                 title: article.title,
                 source: article.name,
                 description: article.description,
@@ -23,9 +29,7 @@ class ArticlesController < ApplicationController
                 company_id: Company.all.sample.id
             )
 
-        if @article.save
-        end
-
+        if article.save
         end
     end
 end
