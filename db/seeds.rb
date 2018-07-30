@@ -2,6 +2,8 @@ require 'csv'
 
 PASSWORD = "admin"
 
+Event.delete_all
+Article.delete_all
 Tagging.delete_all
 Tag.delete_all
 Company.delete_all

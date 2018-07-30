@@ -1,18 +1,26 @@
-<h2 class="my-3 text-center">Directory</h2>
+
+<div class="container">
+    <div class="row">
 <% @companies.each do |company| %>
-    <ul>
-
-        <li 
-        style="list-style-type: none; border-radius: 5px" 
-        class="border border-dark p-3">
-            <%= link_to( 
-                company.name, 
-                company_path(company), 
-                class: "text-dark") %>
-        </li>
-    </ul>
-    
+<div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="card mt-4 mb-4 h-75">
+        <div class="card-body">
+            <%= image_tag company.logo, style:"width: 100px; float:left;" %>
+            <div class="card-text text-right align-bottom" style="float:right;">
+                <%= link_to( 
+                    company.name, 
+                    company_path(company), 
+                    class: "text-dark h4") %>
+                <p class="text-right"><%= company.employees %> Employees<br />
+                <%= company.tech_team %> in Tech Team<br />
+                <%= link_to company.website, "#{company.website}" %></p>
+            </div>
+            </div>
+        </div>
+    </div>
 <% end %>
+</div>
+</div>
 
-<%= will_paginate @companies%>
+<%= will_paginate @companies, class:"text-center my-2"%>
 

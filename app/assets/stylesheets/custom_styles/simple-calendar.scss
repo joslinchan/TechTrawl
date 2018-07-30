@@ -1,6 +1,18 @@
 .simple-calendar {
     // .day {;
     // }
+    table {
+        border: 1px solid whitesmoke;
+        border-radius: 5px;
+    }
+
+    div.calendar-heading {
+        margin-bottom: 12px !important;
+    }
+
+    div.calendar-heading a {
+        color: #85bc4b;
+    }
   
     .wday-0 {
         width: 7rem;
@@ -26,11 +38,11 @@
     }
   
     .today {
-        background-color: yellow;
+        background-color:#e0eed0;
     }
     .past {
         color: gray;
-        background-color: lightgray;
+        background-color: whitesmoke;
     }
     // .future {}
   

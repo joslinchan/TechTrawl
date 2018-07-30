@@ -87,13 +87,12 @@
     <%= yield %>
     </div>
 
-    <footer class="page-footer font-small">
-    <nav class="navbar bg-dark">
-<div class="container mx-0 my-3 d-flex">
+    <nav class="navbar navbar-expand-md bg-dark">
+      <div class="container-fluid my-3 d-flex">
           <div class="flex-fill">
             <% if current_user.present? %>
-              <p>Hi, <%= current_user.first_name %></p>
-              <%= link_to('Submit Organization', new_company_path)%><br>
+              <p class="text-success">Hi, <%= current_user.first_name %></p>
+              <%= link_to('Submit Organization', new_company_path, class:"text-light")%><br>
               <%= link_to(
                 'Sign Out',
                   session_path,
@@ -107,11 +106,11 @@
               <br />
               <%= link_to('About', about_path, class: "text-light") %>
             <% end %>
-            </div>
+          </div>
             <div class="flex-fill">
                 <%= image_tag 'TechTrawl_logo', style:"width: 64px; float: right" %>
-             
             </div>
+        </div>
     </nav>
     </footer>
 

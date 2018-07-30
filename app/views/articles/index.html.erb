@@ -1,14 +1,21 @@
-<h1>Articles</h1>
+<h2>Articles</h2>
 
 <% @articles.each do |article| %>
 
-    <div> 
-        <img src="<%= article.url_to_image %>" style="width: 200px"><br>
-        <%= link_to article.title, article.url %><br>
-        <%= article.published_at %> - Source:
-        <%= link_to article.source, article.url %><br>
-        <%= article.description %>
-        <hr>
+    <div class="border border-dark p-3 m-3" style="border-radius:8px;"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="<%= article.urlToImage %>" style="width: 200px">
+                </div>
+                <div class="col">
+                    <p><strong><%= link_to article.title, article.url, class:"text-dark" %></strong></p>
+                    <p><%= time_ago_in_words(article.publishedAt) %> - Source:
+                    <%= link_to article.name, article.url %></p>
+                    <p><%= article.description %></p>
+                </div>
+            </div>
+        </div>
     </div>  
 
 
