@@ -1,10 +1,10 @@
 # TechTrawl
 
-The definitive directory of Vancouver-based tech companies, with profiles, news, events, and user options! Over 20 companies with details on tech teams, as well as a full-view calendar of related upcoming events.
+The definitive directory of Vancouver-based tech companies, with profiles, news, events, and user options! Over 20 companies with details on tech teams, as well as a full-view calendar of related upcoming events, and map of business locations. 
 
 ## About the Project
 
-Built on Ruby on Rails with Bootstrap
+Built on Ruby on Rails with Bootstrap, and Postgresql.
 
 ## Contributions
 
@@ -20,8 +20,9 @@ Built on Ruby on Rails with Bootstrap
 
 ## Database
 
-To populate the database:
+To set up and populate the database:
 ```
 rails db:migrate
+rails db:seed
 ```
 Events & news generated via API requests in-app, simply navigate to the <b>Events</b> or <b>Articles</b> pages.
