@@ -5,9 +5,7 @@ class ArticlesController < ApplicationController
         @articles = Article
             .order(published_at: :asc)
             .paginate(:per_page => 10, :page => params[:page])
-    end
 
-    def create
         newsapi = News.new("7cc1435c50a14ace808ab284ec562f9c")
 
         news = newsapi.get_everything(
@@ -31,5 +29,6 @@ class ArticlesController < ApplicationController
 
         if article.save
         end
+    end
     end
 end

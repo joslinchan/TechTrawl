@@ -12,7 +12,7 @@
     <tr>
       <td><%= event.urlname %></td>
       <td>
-        <%= link_to('remove', events_path(event.id),
+        <%= link_to('remove', event_path(event.id),
         method: :delete)%>
       </td>    
     </tr>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   resources :articles, only: [:index, :create]
 
-  resources :events, only: [:index, :create]
+  resources :events, only: [:index, :create, :destroy]
 
   get '/', to: 'companies#index', as: 'home'
   get '/about', to: 'about#index'

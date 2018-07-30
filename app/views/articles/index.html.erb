@@ -6,12 +6,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <img src="<%= article.urlToImage %>" style="width: 200px">
+                    <img src="<%= article.url_to_image %>" style="width: 200px">
                 </div>
                 <div class="col">
                     <p><strong><%= link_to article.title, article.url, class:"text-dark" %></strong></p>
-                    <p><%= time_ago_in_words(article.publishedAt) %> - Source:
-                    <%= link_to article.name, article.url %></p>
+                    <p><%= time_ago_in_words(article.published_at) %> - Source:
+                    <%= link_to article.source, article.url %></p>
                     <p><%= article.description %></p>
                 </div>
             </div>
