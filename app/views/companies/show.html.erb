@@ -4,20 +4,23 @@
             <img src="<%= @company.logo %>" style="width: 200px">
         </div>
         <div class="col-9">
-            <h2><%= @company.name %></h2>
-            <p><%= link_to "(visit website)", @company.website %></p>
-            <p><%= @company.overview %></p>
-            <ul style="list-style: none;">
-                <li><strong>Tags:</strong>
-                <%= @company.tags.order(name: :asc).map{ |t| t.name}.join(', ') %>
-                </li>
-                <li><strong>Team Size:</strong> <%= @company.employees %> </li>
-                <li><strong>Tech Team:</strong> <%= @company.tech_team %> </li>
-                <li><strong>Manager:</strong> <%= @company.user.full_name %></li>
-            </ul>
+            <div class="text-left">
+                <h2 style="display:inline"><%= @company.name %></h2>
+                <%= link_to "(visit website)", @company.website %>
+                <p><%= @company.overview %></p>
+                <ul style="list-style: none; padding: 0px;">
+                    <li><strong>Tags:</strong>
+                    <%= @company.tags.order(name: :asc).map{ |t| t.name}.join(', ') %>
+                    </li>
+                    <li><strong>Team Size:</strong> <%= @company.employees %> </li>
+                    <li><strong>Tech Team:</strong> <%= @company.tech_team %> </li>
+                    <li><strong>Manager:</strong> <%= @company.user.full_name %></li>
+                </ul>
+            </div>
         </div>
     </div>
-        <div class="row">
+        <hr />
+        <div class="row" style="margin-top: 24px;">
             <div class="col-5">
                 <a class="twitter-timeline" data-tweet-limit="2" href="<%= @company.twitter %>">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
