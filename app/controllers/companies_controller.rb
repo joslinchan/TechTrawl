@@ -3,6 +3,12 @@ class CompaniesController < ApplicationController
 
     def index
         @companies = Company.search(params[:term]).order(name: :asc).paginate(:per_page => 10, :page => params[:page])
+        @company = Company.all 
+
+        @hash = Gmaps4rails.build_markers(@company) do |company, marker|
+            marker.lat company.latitude
+            marker.lng company.longitude
+          end
     end
 
     def new
