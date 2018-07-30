@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
         newsapi = News.new("7cc1435c50a14ace808ab284ec562f9c")
 
         news = newsapi.get_everything(
-            q: 'tech',
+            q: 'tech, business, programming',
             from: '2018-07-01',
             to: '2018-07-30',
             language: 'en',

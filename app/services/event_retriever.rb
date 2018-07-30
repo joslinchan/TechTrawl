@@ -3,7 +3,7 @@ class EventRetriever
   base_uri "api.meetup.com"
   
   def get_data
-    self.class.get("/find/upcoming_events?photo-host=public&page=20&sig_id=255484866&sig=77503158690af7d982d3ec996ef2e6fe0c66662a")
+    self.class.get("/find/upcoming_events?photo-host=public&page=40&sig_id=255484866&sig=adb9e61e59dc2e4b781b9eaa39fe0190fbabd7f5")
   end
 
   def events
